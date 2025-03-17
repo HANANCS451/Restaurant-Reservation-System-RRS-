@@ -1,7 +1,6 @@
 #include "Reservation.h" 
 
 tables t;
-//global object to use functions from tables class
 Reservation::Reservation() { head = nullptr; }
 
 Reservation::Reservation(string name, string phone_number, string date, int timee, int num_people, int thepay)
@@ -19,12 +18,10 @@ void Reservation::display_info(Node* cur) {
     cout << "|Status: " << cur->status << endl;
     cout << " ---------------------------------------------------------------" << endl;
 }
-//(05& 10 digits)التأكد من ادخال رقم الهاتف بشكل صحيح
 bool Reservation::isValidPhoneNumber(const string& phone) {
     regex pattern(R"(^05\d{8}$)");
     return regex_match(phone, pattern);
 }
-//(YYYY-MM-DD)التأكد من ادخال التاريخ بشكل صحيح
 bool Reservation::isValidDateFormat(const string& date) {
     regex pattern(R"(^\d{4}-\d{2}-\d{2}$)");
     return regex_match(date, pattern);
@@ -67,7 +64,6 @@ void Reservation::insertdata() {
         cout << "Invalid hour format. Please enter again (4 PM to 12 AM): ";
         cin >> timee;
     }
-    //تم استدعاء الفنكشن عشان تاخذ المتغيرات وتحفظها
     make_reservation(name, phone_number, date, timee, num_people, thepay);
 }
 
@@ -130,7 +126,6 @@ void Reservation::make_deposit(Node* newReservation) {
         newReservation->status = "Confirmed";
         cout << "Deposit of " << deposit_amount << " successfully made." << endl;
     }
-    // اذا العربون اقل من 150
     else {
         cout << "Sorry, the deposit must be at least 150." << endl;
         cout << "Please choose one of the following options:" << endl;
