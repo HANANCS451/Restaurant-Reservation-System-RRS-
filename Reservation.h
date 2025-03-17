@@ -7,7 +7,6 @@
 
 using namespace std;
 
-//كلاس الحجز يحتوي على الفنكشن
 class Reservation {
 public:
     struct Node {
@@ -32,13 +31,13 @@ public:
     int thepay;
     int num_tabels;
 
-    Reservation();//Constructor
+    Reservation();
     Reservation(string name, string phone_number, string date, int timee, int num_people, int thepay);//Constructor with parametr
-    void display_info(Node *cur);//فنكشن لعرض بيانات الحجز
-    void make_reservation(string name, string phone_number, string date, int timee, int num_people, int thepay);//فنكشن لانشاء حجز
-    void make_deposit(Node * newReservation);// فنكشن العربون مع حاله الحجز
-    void insertdata();// فنكشن ادخال البيانات 
-    void searchReservation();//فنكشن البحث
+    void display_info(Node *cur);
+    void make_reservation(string name, string phone_number, string date, int timee, int num_people, int thepay);
+    void make_deposit(Node * newReservation);
+    void insertdata();
+    void searchReservation();
     bool isValidPhoneNumber(const string& phone);
     bool isValidDateFormat(const string& date);
     bool isValidTimeFormat(int hour);
